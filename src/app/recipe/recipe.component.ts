@@ -21,6 +21,7 @@ export class RecipeComponent implements OnInit {
 
   results: Recipe[];
   suggestions: Recipe[];
+  isAuth = false;
   listConfig: RecipeListConfig = {
     type: 'all',
     search: false,
@@ -43,6 +44,7 @@ export class RecipeComponent implements OnInit {
     this.comments = [];
 
     this.runQuery();
+    this.userService.isAuthenticated.subscribe(data => this.isAuth = data);
     this.route.data.subscribe(
       (data: { recipe: Recipe }) => {
         this.recipe = data.recipe;

@@ -17,8 +17,8 @@
                     <h1 class="recipe-title">
                     {{recipe.title}}
                     </h1>
-                    <i *ngIf="!recipe.favorited" class="material-icons btn-like" (click)="toggleFavorite();$event.stopPropagation()">favorite_border</i>
-                    <i *ngIf="recipe.favorited" class="material-icons btn-like" (click)="toggleFavorite();$event.stopPropagation()" style="color:wheat;">
+                    <i *ngIf="!recipe.favorited" class="material-icons btn-like" (click)="isAuth ? toggleFavorite() : openAuthDialog('login');$event.stopPropagation()">favorite_border</i>
+                    <i *ngIf="recipe.favorited" class="material-icons btn-like" (click)="isAuth ? toggleFavorite() : openAuthDialog('login');$event.stopPropagation()" style="color:wheat;">
                         favorite
                         </i>
                     <span>{{recipe.favoritesCount}}</span>
