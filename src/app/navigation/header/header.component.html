@@ -1,0 +1,68 @@
+
+<link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<mat-toolbar color="white">
+    <mat-toolbar-row id="row1">
+        <div fxHide.gt-xs>
+            <button mat-icon-button (click)="onToggleSidenav()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
+        <div>
+            <a routerLink="/">
+            <img class="logo" src="../../assets/ARlogo.svg" alt="Logo">
+            </a>
+        </div>
+        <div fxLayout fxLayoutAlign="end" style="width:100%;" >
+            <ul fxHide fxShow.gt-xs fxFlex fxLayout fxLayoutAlign="start" fxLayoutGap="3vw" class="navigation-items">
+                <li>
+                    <a routerLink="/">Recipes</a>
+                </li>
+
+                <li>
+                    <a (click)="isAuth ? false : openDialog('login')" routerLink="/editor">Edit</a>
+                </li>
+                <li>
+                 <a  (click)="hideInstant(); inCategories=false" (mouseover)="showCategories()" (mouseleave)="inCategories = false; hideCategories()" routerLink="/categories">Categories</a>
+                </li>
+
+            </ul>
+            <ul fxLayout fxLayoutAlign="end" fxLayoutGap="1vw" style="margin-right:10px;" class="navigation-items">
+                <li>
+                    <mat-icon class="search" routerLink="/search">search</mat-icon>
+                </li>
+                <li *appShowAuthed="false">
+                    <button fxHide fxShow.gt-xs mat-raised-button (click)="openDialog('register')">Sign Up</button>
+                </li>
+                <mat-divider [vertical]="true"></mat-divider>
+                <li *appShowAuthed="false">
+                    <button mat-raised-button (click)="openDialog('login')">LogIn</button>
+                </li>
+                <li *appShowAuthed="true">
+                    <a [routerLink]="['/profile', currentUser.username]"
+                        [routerLink]="['/profile', currentUser.username]"
+                        routerLinkActive="active">
+                        <img id="ima" [src]="currentUser.image" *ngIf="currentUser.image" class="user-pic" />
+                        {{ currentUser.username }}
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </mat-toolbar-row>
+    <mat-toolbar-row  id="row2" (mouseover)="inCategories = true;showCategories()" (mouseleave)="inCategories = false; hideCategories()">
+        <div class="toolbar-container">
+            <div fxLayout="column" class="dropdown-categories" (click)="hideCategories(); inCategories=false;">
+                <a routerLink="/categories">Recipes</a>
+                <a routerLink="/categories/American">American</a>
+                <a routerLink="/categories/Breakfast">Breakfast</a>
+                <a routerLink="/categories/Italian">Italian</a>
+            </div>
+            <div class="list" fxLayout="row wrap" fxLayoutGap="64px" fxLayoutAlign="center">
+                <app-small-recipe-preview *ngFor="let recipe of results"
+                    [recipe] = "recipe">
+                </app-small-recipe-preview>
+            </div>
+
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>

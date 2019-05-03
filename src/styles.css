@@ -1,0 +1,86 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
+
+html, body { 
+    padding: auto;
+    outline: none;
+    border: 0;
+}
+
+.grid-list {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 55.5rem;
+  width: 100%;
+  padding: 0;
+  height: 100%;
+  top: 50px;
+  padding: 5vw;
+}
+
+
+.item-archive {
+  display:grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 1.1363666rem;
+  grid-row-gap: 1rem;
+  
+}
+@media (min-width: 350px){
+  .item-archive {
+      grid-column-gap: .75rem;
+      grid-row-gap: 1.5rem;
+  }
+  }
+@media (min-width: 430px){
+.item-archive {
+    grid-template-columns: repeat(3,1fr);
+}
+}
+@media (min-width: 590px){
+.item-archive {
+    grid-template-columns: repeat(4,1fr);
+    grid-column-gap: 1.1363666rem;
+}
+}
+
+ul {
+  list-style: none;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 40px;
+}
+
+
+  dialog { 
+    border: none !important;
+  }
+  mat-dialog-content {
+    overflow-y: hidden !important;
+    outline: none;
+    border: 0;
+}
+
+.mat-divider {
+    border-color: white;
+} 
+
+.main-headline {
+  display: block;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  margin-top: 0;
+  font-family: LyonDisplay,serif;
+  font-weight: 700;
+  line-height: 1.5;
+  
+}

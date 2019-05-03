@@ -1,0 +1,16 @@
+<div class="card">
+    <div class="card-block">
+      <p class="card-text">
+        {{ comment.body }}
+      </p>
+    </div>
+    <div class="card-footer">
+      <a class="comment-author" [routerLink]="['/profile', comment.author.username]">
+        <img [src]="comment.author.image" class="comment-author-img" />
+      </a>
+
+      <a class="comment-author" [routerLink]="['/profile', comment.author.username]">
+        {{ comment.author.username }}
+      </a>
+    </div>
+  </div>

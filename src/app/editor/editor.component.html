@@ -1,0 +1,74 @@
+
+
+<form  [formGroup]="recipeForm" (ngSubmit)="submitForm()">
+  <div class="row">
+    <div class="left-column">
+        <mat-form-field>
+            <input matInput placeholder="URL Image" formControlName="image">
+        </mat-form-field>
+    
+       <div class="time">
+          <mat-form-field>
+              <input matInput placeholder="Cook Time" formControlName="time">
+          </mat-form-field>
+       </div>
+
+        <mat-form-field>
+            <input matInput placeholder="Difficulty" formControlName="difficulty">
+        </mat-form-field>
+
+        <mat-form-field hintLabel="One per line">
+            <textarea matInput rows="4" placeholder="Ingredients" formControlName="ingredients"></textarea>
+        </mat-form-field>
+    </div>
+    
+    <div fxFlex fxLayout="column" class="right-column">
+        <mat-form-field>
+            <input matInput required placeholder="Title" formControlName="title">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <textarea matInput rows="7" placeholder="Description" formControlName="description"></textarea>
+        </mat-form-field>
+    
+        <mat-form-field hintLabel="One per line">
+            <textarea matInput rows="7" placeholder="Steps" formControlName="steps"></textarea>
+        </mat-form-field>
+    
+        <mat-form-field>
+          <mat-label>Select Category (required)</mat-label>
+          <mat-select  required formControlName="category">
+            
+              <mat-option value="starter">Starter</mat-option>
+              <mat-option value="main">Main</mat-option>
+              <mat-option value="dessert">Dessert</mat-option>
+              <mat-option value="snack">Snack</mat-option>
+              <mat-option value="breakfast">Breakfast</mat-option>
+              <mat-option value="drink">Drink</mat-option>
+          </mat-select>
+ 
+        </mat-form-field>
+        
+        <mat-form-field>
+          <mat-label>Select Cuisine</mat-label>
+          <mat-select formControlName="cuisine">
+              
+              <mat-option value="chinese">Chinese</mat-option>
+              <mat-option value="italian">Italian</mat-option>
+              <mat-option value="indian">Indian</mat-option>
+              <mat-option value="spanish">Spanish</mat-option>
+              <mat-option value="american">American</mat-option>
+              <mat-option value="french">French</mat-option>
+              <mat-option value="european">European</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <div class="button-div">
+            <button type="submit" mat-button>Submit</button>
+          </div>
+    </div>  
+  </div>
+
+  
+   
+</form>

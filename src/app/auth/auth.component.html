@@ -1,0 +1,49 @@
+
+<div  class="modal-content" style="align-content:center;">
+  <div class="auth-content">
+    <div  class="auth-body">
+      <div *ngIf="authType == 'register'">
+          <h1 >Welcome to Kitchen!</h1>
+          <p>Create your Account</p>
+      </div>
+      <div *ngIf="authType == 'login'">
+          <h1 >Welcome Back!</h1>
+          <p>Log in to your account</p>
+      </div>
+      <button class="button button--facebook" (click)="OnNavigate()">Log in with Facebook</button>
+      <p>or</p>
+      <form [formGroup]="authForm" fxLayout="column"  fxLayoutAlign="start center" fxclass="form" (ngSubmit)="submitForm()">
+        <mat-form-field *ngIf="authType == 'register'">
+          <input matInput placeholder="Enter your username" formControlName="username" required>
+        </mat-form-field> 
+        <mat-form-field>
+          
+          <input matInput [errorStateMatcher]="matcher" placeholder="Enter your email" formControlName="email" required>
+          <mat-error *ngIf="authForm.hasError('ass')">
+              <li *ngFor="let error of formattedErrors">
+                  {{ error }}
+                </li>
+          </mat-error> 
+
+        </mat-form-field> 
+        <mat-form-field>
+          <input matInput placeholder="Enter your password" formControlName="password" [type]="hide ? 'password' : 'text'">
+          <mat-error *ngIf="authForm.invalid">{{getErrorMessage()}}</mat-error>
+         
+          
+        </mat-form-field> 
+        <button type="submit" class="btn btn-lg btn-primary pull-xs-right">Submit</button>
+
+      </form>
+    </div>
+  </div>
+  <div class="footer">
+    <p>I don't have an account 
+      <a *ngIf="authType == 'register'" (click)="changeAuthType()" >Log-in!</a>
+      <a *ngIf="authType == 'login'" (click)="changeAuthType()" >Sign-up!</a>
+    </p>
+    
+  </div>
+</div>
+  
+  

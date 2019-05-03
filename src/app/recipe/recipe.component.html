@@ -1,0 +1,133 @@
+
+
+<div class="detail-section">
+    <div class="width-wrapper">
+        <div class="row">
+            <div class="column">
+                <div class="page-header">
+                    <div [ngStyle]="{'background-image': 'url(' + recipe.image + ')'}" class="photo">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left-col">
+                <div class="recipe-information">
+                    <h1 class="recipe-title">
+                    {{recipe.title}}
+                    </h1>
+                    <i *ngIf="!recipe.favorited" class="material-icons btn-like" (click)="toggleFavorite();$event.stopPropagation()">favorite_border</i>
+                    <i *ngIf="recipe.favorited" class="material-icons btn-like" (click)="toggleFavorite();$event.stopPropagation()" style="color:wheat;">
+                        favorite
+                        </i>
+                    <span>{{recipe.favoritesCount}}</span>
+                </div>
+                <section class="recipe-information">
+                    <div class="author-information-bio">
+                        <img id="author-image" [src]="recipe.author.image" class="user-pic" />
+                        <div>{{recipe.author.username}}</div>
+                    </div>
+                    <p class="author-information-description">{{recipe.description}}</p>
+                </section>
+                <div class="recipe-difficulty dotted-line">
+                    <h2>Difficulty :</h2>
+                    <span> {{recipe.difficulty}} </span>
+                </div>
+                <div class="recipe-time dotted-line">
+
+                        <div class="time-container">
+                            <div class="time">{{recipe.time}} </div>
+                            <div class="unit">min. </div>
+                        </div>
+                        <div class="title">
+                            <div class="time">Preparation </div>
+                        </div>
+
+
+                </div>
+                <div class="recipe-ingredients dotted-line">
+                    <h2>Ingredients</h2>
+                    <div *ngFor="let ingredient of recipe.ingredients">
+                        {{ingredient}}
+                    </div>
+                </div>
+
+            </div>
+            <div class="right-col">
+                <aside class="recommendation">
+                    <div class="recipe-information">
+                        <h4> More delicious ideas for you </h4>
+                        <div class="recipes">
+                            <app-small-recipe-preview *ngFor="let recipe of results"
+                                [recipe] = "recipe">
+                            </app-small-recipe-preview>
+                        </div>
+                    </div>
+                </aside>
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="left-col">
+                <ul class="recipe-steps">
+                    <li class="step" *ngFor="let step of recipe.steps;let i=index">
+                        <h2> Step {{i+1}}/{{recipe.steps.length}}</h2>
+                        {{step}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="left-col">
+                <div>
+                    <div *appShowAuthed="true">
+
+                        <form  (ngSubmit)="addComment()">
+                        <fieldset>
+                            <div class="card-block">
+                            <textarea class="form-control"
+                                placeholder="Write a comment..."
+                                rows="3"
+                                [formControl]="commentControl"
+                            ></textarea>
+                            </div>
+                            <div class="card-footer">
+                            <img id="author-image" [src]="currentUser.image" />
+                            <button class="btn btn-sm btn-primary" type="submit">
+                                Post Comment
+                            </button>
+                            </div>
+                        </fieldset>
+                        </form>
+                    </div>
+
+                    <div class="auth-part" *appShowAuthed="false">
+                        <a (click)="openAuthDialog('login')">Sign in</a> or <a (click)="openAuthDialog('register')">sign up</a> to add comments on this article.
+                    </div>
+
+                    <app-recipe-comment
+                        *ngFor="let comment of comments"
+                        [comment]="comment"
+                        (deleteComment)="onDeleteComment(comment)">
+                    </app-recipe-comment>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="recommendations">
+    <div class="width-wrapper">
+        <h2>Ideas for you !</h2>
+        <div class="item-archive">
+            <ng-container *ngFor="let recipe of suggestions" >
+                <app-recipe-preview
+                    [recipe] = "recipe">
+                </app-recipe-preview>
+            </ng-container>
+        </div>
+    </div>
+</div>

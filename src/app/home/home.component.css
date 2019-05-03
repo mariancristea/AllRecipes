@@ -1,0 +1,84 @@
+
+.recipe-list {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: auto;
+    margin-top: 50px;
+    max-width: 55.5rem;
+    width: 100%;
+    padding: 0;
+    height: 100%;
+    top: 50px;
+    padding: 5vw;
+  }
+
+
+.header-content {
+  background-image: url(https://www.kitchenstories.com/images/IMG_searchhero_tablet.dae0a5461296a4438ff94b6d48a16dc8.jpg);
+  background-repeat: no-repeat;
+  margin-top: 50px;
+  box-sizing: border-box;
+  width: 100%;
+  text-align: center;
+  padding-top: 4.375rem;
+  padding-bottom: 1.875rem;
+
+  position: sticky;
+  top: 0px;
+}
+
+@media (min-width: 600px) {
+  .header-content {
+    background-image: url(https://www.kitchenstories.com/images/IMG_searchhero_desktop.8ff2a241a721129dfc76bb12b1007c49.jpg);
+  }
+}
+.filters-bar{
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 100%;
+
+  -webkit-box-shadow: 0 6px 4px -4px rgb(139, 119, 119);
+  -moz-box-shadow: 0 6px 4px -4px rgb(161, 143, 143);
+  box-shadow: 0 6px 4px -4px rgb(143, 131, 131);
+
+}
+.filters-bar > button  {
+  color: #0a7f78;
+  text-transform: uppercase;
+  letter-spacing: .07rem;
+  cursor: pointer;
+  font-size: .75rem;
+  padding: 0 3rem;
+  overflow: auto;
+  outline: none;
+  border: 0;
+}
+@media screen and (max-width: 460px){
+  .filters-bar > button  {
+    padding: 0 1rem;
+    letter-spacing: .02rem;
+    font-size: .6rem;
+  }
+}
+
+.fill-height-or-more{
+  flex: column;
+}
+
+.button {
+  display:block;
+  color: #fff;
+  min-width: 100px;
+  background-color: #0a7f78;
+  font-size: 1rem;
+  margin: auto;
+  margin-bottom: 30px;
+}
+
+.noRecipes {
+  margin: auto;
+  margin-bottom: 30px;
+  margin-top: 30px;
+  text-align: center;
+}

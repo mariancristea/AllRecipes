@@ -1,0 +1,85 @@
+
+mat-toolbar {
+    position: fixed; /* Set the navbar to fixed position */
+    top: 0; /* Position the navbar at the top of the page */
+    width: 100%; /* Full width */
+    z-index: 2;
+}
+.list{
+   height: 200px;
+}
+.logo{
+    background-image: url(../../../assets/ARlogo.svg);
+ 
+    
+    background-repeat: no-repeat;
+    background-position: 0;
+    margin-right: auto;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-family: 'Oswald', sans-serif;
+}
+ 
+a:hover, a:active{
+    text-decoration: underline;
+}
+ 
+.navigation-items{
+    list-style-type: none;
+    padding: 20;
+    margin: 0;
+}
+.dropdown-categories{
+    padding: 20px 0;
+    float: left;
+}
+
+#ima {
+    height: 30px;
+    width: 30px;
+}
+#row1 {
+    height: 50px;
+}
+#row2 {
+    display: none !important;
+    margin: 0 auto;
+    max-width: 900px;
+    position: relative;
+    height: 200px;
+}
+#recipes {
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+    position: absolute;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    float:left;
+  }
+  
+  .dropdown-content {
+    display: none;
+    width: 100vw;
+    position:absolute;
+    background-color: white;
+    left:0px;
+  }
+  .dropdown:hover .dropdown-content {
+    display: block;
+    position: absolute;
+    float: left;
+  }
+
+  .search{
+      cursor: pointer;
+      outline: none;
+      border: 0;
+  }
